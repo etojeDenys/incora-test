@@ -70,7 +70,7 @@ class StreamingService {
         mostViewedShows.sort((a, b) => b[1] - a[1])
         const retShows = mostViewedShows.map(([value]) => value)
 
-        return retShows.length > 10 ? retShows.slice(9) : retShows
+        return retShows.length > 10 ? retShows.slice(0,10) : retShows
     }
 
     getMostViewedShowsOfYear(year: number): Array<Show> {
@@ -169,6 +169,7 @@ netflixSub.watch(netflixShows[1].name)
 netflixSub.watch(netflixShows[0].name)
 netflixSub.watch(netflixShows[0].name)
 netflixSub.watch(netflixShows[0].name)
+console.log(netflix.viewsByShowNames)
 
 console.log(netflixSub.getRecommendationTrending());
 console.log(netflixSub.getRecommendationByGenre(Genre.DRAMA));
